@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'navbarFont';
+  src:  url('../../font/KaushanScript-Regular.ttf')  format('truetype'), 
+}
+
+@font-face {
+  font-family: 'MenuItems';
+  src:  url('../../font/Righteous-Regular.ttf')  format('truetype'), 
+}
+
+
+.page-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .page-header #nav-start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 2;
+  }
+
+
+
+   
+  .page-header ul {
+    display: flex;
+    order: 1;
+    width: 100%;
+    margin-top: 15px;
+    padding-left: 60px
+  }
+  .page-header ul>li{
+    font-family:'MenuItems' ;
+    margin: 15px;
+    font-size: 32px; 
+  }
+
+  .logo{
+    font-family: 'navBarFont', cursive;
+    font-size: 38px;
+  }
+   
+  @media screen and (min-width: 550px) {
+    .page-header ul {
+      width: auto;
+      margin-top: 0;
+    }
+   
+    .page-header .cta-contact {
+      order: 1;
+    }
+  }

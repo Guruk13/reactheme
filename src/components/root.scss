@@ -1,0 +1,19 @@
+
+input, textarea, button {
+  border: 1px solid #444;
+  margin: 0.5em 0.5em 0.5em 0;
+  padding: 0.5em;
+}
+
+input[type="submit"] {
+  padding: 0.5em;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  border-color: yellowgreen;
+  cursor: pointer;
+}
+
+
+
