@@ -1,10 +1,13 @@
+// T E C H N I C A L 
 import React, { Component } from 'react';
 import './root.scss';
-import Footer from './footercomponent/Footer'
-import Header from './headercomponent/Header';
-import PageMain from './pagemaincomponent/PageMain';
+// J O B 
+
 import './global.scss';
 import Items from './itemscomponent/Items';
+import Footer from './footercomponent/Footer'
+import PageMain from './pagemaincomponent/PageMain';
+
 
 //https://webdesign.tutsplus.com/tutorials/how-to-build-a-full-screen-responsive-page-with-flexbox--cms-32086
 
@@ -38,13 +41,14 @@ class Root extends Component {
   render() {
     return (
       <>
-        <Header
+
+        <Navbar
           totalItems={this.state.items.reduce((prev, cur) => {
             return prev + cur.value;
           }, 0)}
-        />
+        ></Navbar>
+
         <PageMain >
-        </PageMain>
         <React.Fragment>
           <Items
             onReset={this.handleReset}
@@ -53,6 +57,8 @@ class Root extends Component {
             items={this.state.items}
           />
         </React.Fragment>
+        </PageMain>
+
         <Footer />
       </>
     );
