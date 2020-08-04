@@ -1,6 +1,6 @@
 // T E C H N I C A L
 import React from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import { NavLink } from 'react-router-dom';
 // J O B 
 import './Navbar.scss';
@@ -22,15 +22,6 @@ class Navbar extends React.Component {
                             That par from Moroder goes ...{this.props.totalItems}
                         </h2>
                         <ul>
-                            <BrowserRouter>
-                                <NavLink to="/">Homes</NavLink>
-
-
-                                <Switch>
-                                    <Route path="/about" component={About} />
-                                    <Route path="/contact" component={Contact} />
-                                </Switch>
-                            </BrowserRouter>
 
                             <li>Hot Pants</li>
                             <li>Get up</li>
