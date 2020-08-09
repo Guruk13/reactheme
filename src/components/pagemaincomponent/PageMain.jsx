@@ -10,7 +10,7 @@ class PageMain extends React.Component {
     render() {
         return (
 
-            <main class="page-main">
+            <main className="page-main">
                 <LoginForm />
                 <NodeReadWrite />
             </main>
