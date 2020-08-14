@@ -9,6 +9,9 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "regenerator-runtime/runtime.js";
 import { NavLink } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+
 
 // J O B 
 import About from './components/random/About';
@@ -30,6 +33,23 @@ interface IItem {
   id: number;
   value: number;
 }
+
+/* apply styles globaly & give room to root wrapper */
+const GlobalStyle = createGlobalStyle`
+  #root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  },
+  #root > div {
+    flex-grow: 1;
+    background: lightgray;
+  }
+  `
+
+
+
+
 
 export default class App extends React.Component<InitProps> {
   constructor(props: InitProps) {
@@ -73,16 +93,19 @@ export default class App extends React.Component<InitProps> {
 
 
 
+
+
   render() {
     return (
       <>
+        <GlobalStyle />
         <Router>
 
           <header className="page-header">
             <nav>
               <div id="nav-start">
                 <h2 className="logo">
-                  That par from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
+                  That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
                 </h2>
                 <ul>
                   <li>
@@ -99,10 +122,6 @@ export default class App extends React.Component<InitProps> {
             </nav>
 
           </header>
-
-
-
-
 
           <Switch>
             <Route exact path="/">

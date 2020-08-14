@@ -7,11 +7,7 @@ body {
 color: white;
 }
 
-#root {
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-}
+
 
 #root > * {
 padding: 20px;
@@ -21,9 +17,10 @@ padding: 20px;
 background: purple;
 }
 
-.page-main {
-flex-grow: 1;
-background: lightgray;;
+
+
+#root  >div {
+
 }
 
 .page-footer {
