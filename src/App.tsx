@@ -1,24 +1,32 @@
 // D O C 
 /*
+https://medium.com/@Zwenza/functional-vs-class-components-in-react-231e3fbd7108
 https://fettblog.eu/typescript-react/components/#class-components
+https://opensenselabs.com/blog/tech/rem-vs-em-vs-px-when-use-these-units
+https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
+https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/
+https://dev.to/ibrahima92/redux-vs-react-context-which-one-should-you-choose-2hhh  <=== comments are really good 
+https://medium.com/@Zwenza/functional-vs-class-components-in-react-231e3fbd7108
+https://fettblog.eu/typescript-react/components/
 
 */
-
 // T E C H N I C A L 
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "regenerator-runtime/runtime.js";
 import { NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
-
 
 // J O B 
 import About from './components/random/About';
 import Home from './components/homecomponent/Home';
 import Fragments from './components/random/Fragments';
-import './components/global.scss';
 import Footer from './components/footercomponent/Footer';
+
+//Fonts. Include any other format in d.ts
+import Kaushan from './font/KaushanScript-Regular.ttf';
+import Righteous from './font/Righteous-Regular.ttf';
+
 
 interface InitProps {
   props: undefined;
@@ -36,37 +44,88 @@ interface IItem {
 
 /* apply styles globaly & give room to root wrapper */
 const GlobalStyle = createGlobalStyle`
-  #root{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  },
-  #root > div {
-    flex-grow: 1;
-    background: lightgray;
+  //three parts and navbar 
+  .page-header {
+    background: purple;
   }
+
+  @font-face {
+    font-family: 'navbarFont';
+    src:  url(${Kaushan})  
+  }
+  
+  @font-face {
+    font-family: 'MenuItems';
+    src:  url(${Righteous})  
+  }
+
+  .page-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-header #nav-start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 2;
+  }
+
+  .page-header ul {
+    display: flex;
+    order: 1;
+    width: 100%;
+    margin-top: 1em;
+    padding-left: 3.5em;
+  }
+  .page-header ul>li{
+    font-family:'MenuItems' ;
+    margin: 15px;
+    font-size: 32px; 
+  }
+
+  .logo{
+    font-family: 'navBarFont', cursive;
+    font-size: 38px;
+  }
+   
+  @media screen and (min-width: 550px) {
+    .page-header ul {
+      width: auto;
+      margin-top: 0;
+    }
+   
+    .page-header .cta-contact {
+      order: 1;
+    }
+  }
+
+  * {
+    margin: 0;
+    }
+
+  //fragments 
+  input, textarea, button {
+    border: 1px solid #444;
+
+  }
+
   `
-
-
-
-
 
 export default class App extends React.Component<InitProps> {
   constructor(props: InitProps) {
     super(props);
-    console.log(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
 
-
-
   state = {
     items: [{ id: 1, value: 0 }, { id: 2, value: 0 }, { id: 3, value: 0 }, { id: 4, value: 0 }]
   };
-
-
 
   handleIncrement = (item: IItem) => {
     const items = [...this.state.items];
@@ -89,19 +148,12 @@ export default class App extends React.Component<InitProps> {
     this.setState({ items: items });
   };
 
-
-
-
-
-
-
   render() {
     return (
       <>
         <GlobalStyle />
         <Router>
-
-          <header className="page-header">
+          <Header className="page-header">
             <nav>
               <div id="nav-start">
                 <h2 className="logo">
@@ -120,9 +172,7 @@ export default class App extends React.Component<InitProps> {
                 get in touch
             </button>
             </nav>
-
           </header>
-
           <Switch>
             <Route exact path="/">
               <Home />
@@ -133,18 +183,11 @@ export default class App extends React.Component<InitProps> {
                 handleIncrement={this.handleIncrement}
                 handleReset={this.handleReset} />
             </Route>
-
             <Route path="/about" component={About} />
           </Switch>
-
         </Router>
-
-
         <Footer />
-
       </>
-
-
     )
   }
 }

@@ -1,12 +1,16 @@
 import React from "react";
-import './Footer.scss';
+import  styled  from '../../theme/index';
+
+const StyledFooter = styled.footer`
+    background: purple;
+`;
 
 class Footer extends React.Component {
     render() {
         return (
-            <footer className="page-footer">
+            <StyledFooter >
                 <h1> I'm just a title from the footer </h1>
-            </footer>
+            </StyledFooter>
         )
     }
 }

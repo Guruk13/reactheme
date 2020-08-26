@@ -3,16 +3,40 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createGlobalStyle, ThemeProvider, theme } from "../src/theme";
+
+
+
+const GlobalStyle = createGlobalStyle`
+  #root > * {
+    padding: 20px;
+  }
+
+  body {
+    background-color: ${props => (props.whiteColor ? props.theme.primaryColor : 'black')};
+  }
+
+  #root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  #root > div{
+    flex-grow: 1;
+  }
+`
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle whiteColor />
+      <App />
+    </ThemeProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-
 
 
 // If you want your app to work offline and load faster, you can change
