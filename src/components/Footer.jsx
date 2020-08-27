@@ -1,5 +1,5 @@
 import React from "react";
-import  styled  from '../../theme/index';
+import  styled  from '../theme/index';
 
 const StyledFooter = styled.footer`
     background: purple;

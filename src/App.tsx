@@ -19,13 +19,16 @@ import { createGlobalStyle } from 'styled-components';
 
 // J O B 
 import About from './components/random/About';
-import Home from './components/homecomponent/Home';
+import Home from './components/Home';
 import Fragments from './components/random/Fragments';
-import Footer from './components/footercomponent/Footer';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 //Fonts. Include any other format in d.ts
 import Kaushan from './font/KaushanScript-Regular.ttf';
 import Righteous from './font/Righteous-Regular.ttf';
+import styled from './theme/index';
+import {Nav, NavDiv ,NavUl ,NavbarLi, LogoTitle} from './MainStyles.js'
 
 
 interface InitProps {
@@ -45,9 +48,6 @@ interface IItem {
 /* apply styles globaly & give room to root wrapper */
 const GlobalStyle = createGlobalStyle`
   //three parts and navbar 
-  .page-header {
-    background: purple;
-  }
 
   @font-face {
     font-family: 'navbarFont';
@@ -59,47 +59,10 @@ const GlobalStyle = createGlobalStyle`
     src:  url(${Righteous})  
   }
 
-  .page-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .page-header #nav-start {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    flex-grow: 2;
-  }
-
-  .page-header ul {
-    display: flex;
-    order: 1;
-    width: 100%;
-    margin-top: 1em;
-    padding-left: 3.5em;
-  }
-  .page-header ul>li{
-    font-family:'MenuItems' ;
-    margin: 15px;
-    font-size: 32px; 
-  }
-
-  .logo{
-    font-family: 'navBarFont', cursive;
-    font-size: 38px;
-  }
-   
   @media screen and (min-width: 550px) {
-    .page-header ul {
+    .page-headeér ul {
       width: auto;
       margin-top: 0;
-    }
-   
-    .page-header .cta-contact {
-      order: 1;
     }
   }
 
@@ -110,9 +73,7 @@ const GlobalStyle = createGlobalStyle`
   //fragments 
   input, textarea, button {
     border: 1px solid #444;
-
   }
-
   `
 
 export default class App extends React.Component<InitProps> {
@@ -153,26 +114,24 @@ export default class App extends React.Component<InitProps> {
       <>
         <GlobalStyle />
         <Router>
-          <Header className="page-header">
-            <nav>
-              <div id="nav-start">
-                <h2 className="logo">
+          <Header >
+            <Nav>
+              <NavDiv>
+                <LogoTitle>
                   That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
-                </h2>
-                <ul>
-                  <li>
+                </LogoTitle>
+                <NavUl>
+                  <NavbarLi>
                     <NavLink to="/about">About</NavLink>
-                  </li>
-                  <li> <NavLink to="/fragments">Fragments</NavLink></li>
-                  <li><NavLink to="/">Home</NavLink></li>
-                </ul>
-              </div>
-
-              <button className="cta-contact">
-                get in touch
-            </button>
-            </nav>
-          </header>
+                  </NavbarLi>
+                    <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
+                  </NavbarLi>
+                    <NavbarLi><NavLink to="/">Home</NavLink>
+                  </NavbarLi>
+                </NavUl>
+              </NavDiv>
+            </Nav>
+          </Header>
           <Switch>
             <Route exact path="/">
               <Home />
