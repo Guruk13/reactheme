@@ -24,11 +24,8 @@ import Fragments from './components/random/Fragments';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-//Fonts. Include any other format in d.ts
-import Kaushan from './font/KaushanScript-Regular.ttf';
-import Righteous from './font/Righteous-Regular.ttf';
-import styled from './theme/index';
-import {Nav, NavDiv ,NavUl ,NavbarLi, LogoTitle} from './MainStyles.js'
+//Styling
+import { Nav, NavDiv, NavUl, NavbarLi, LogoTitle } from './MainStyles.js'
 
 
 interface InitProps {
@@ -47,33 +44,7 @@ interface IItem {
 
 /* apply styles globaly & give room to root wrapper */
 const GlobalStyle = createGlobalStyle`
-  //three parts and navbar 
 
-  @font-face {
-    font-family: 'navbarFont';
-    src:  url(${Kaushan})  
-  }
-  
-  @font-face {
-    font-family: 'MenuItems';
-    src:  url(${Righteous})  
-  }
-
-  @media screen and (min-width: 550px) {
-    .page-headeér ul {
-      width: auto;
-      margin-top: 0;
-    }
-  }
-
-  * {
-    margin: 0;
-    }
-
-  //fragments 
-  input, textarea, button {
-    border: 1px solid #444;
-  }
   `
 
 export default class App extends React.Component<InitProps> {
@@ -124,9 +95,9 @@ export default class App extends React.Component<InitProps> {
                   <NavbarLi>
                     <NavLink to="/about">About</NavLink>
                   </NavbarLi>
-                    <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
+                  <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
                   </NavbarLi>
-                    <NavbarLi><NavLink to="/">Home</NavLink>
+                  <NavbarLi><NavLink to="/">Home</NavLink>
                   </NavbarLi>
                 </NavUl>
               </NavDiv>
