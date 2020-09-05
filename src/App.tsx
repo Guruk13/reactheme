@@ -15,37 +15,85 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "regenerator-runtime/runtime.js";
 import { NavLink } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-
 // J O B 
 import About from './components/random/About';
 import Home from './components/Home';
 import Fragments from './components/random/Fragments';
 import Footer from './components/Footer';
 import Header from './components/Header';
-
 //Styling
 import { Nav, NavDiv, NavUl, NavbarLi, LogoTitle } from './MainStyles.js'
+import { createGlobalStyle, ThemeProvider, whiteSnake, fooFighters, IThemeInterface } from "./theme";
+//Fonts. Include any other format in d.ts
+import Kaushan from './font/KaushanScript-Regular.ttf';
+import Righteous from './font/Righteous-Regular.ttf';
 
+type IGlobalStyle = {
+  whiteColor: boolean;
+}
 
 interface InitProps {
-  props: undefined;
+  props?: undefined;
 }
 interface Istate {
-  items: IItems;
-}
-interface IItems {
-  [key: number]: IItem;
+  items: Array<IItem>;
+  theme: string;
 }
 interface IItem {
-  id: number;
-  value: number;
+  id:number;
+  value:number;
 }
 
-/* apply styles globaly & give room to root wrapper */
-const GlobalStyle = createGlobalStyle`
 
-  `
+
+const GlobalStyle = createGlobalStyle`
+  #root > * {
+    padding: 20px;
+  }
+
+
+ body{
+   background-color:${({ theme }) => theme.background};
+ }
+
+  #root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  #root > div{
+    flex-grow: 1;
+  }
+
+  //three parts and navbar 
+
+  @font-face {
+    font-family: 'navbarFont';
+    src:  url(${Kaushan})  
+  }
+  
+  @font-face {
+    font-family: 'MenuItems';
+    src:  url(${Righteous})  
+  }
+
+  @media screen and (min-width: 550px) {
+    .page-headeér ul {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+
+  * {
+    margin: 0;
+    }
+
+  //fragments 
+  input, textarea, button {
+    border: 1px solid #444;
+  }
+`
 
 export default class App extends React.Component<InitProps> {
   constructor(props: InitProps) {
@@ -55,8 +103,9 @@ export default class App extends React.Component<InitProps> {
     this.handleReset = this.handleReset.bind(this);
   }
 
-  state = {
-    items: [{ id: 1, value: 0 }, { id: 2, value: 0 }, { id: 3, value: 0 }, { id: 4, value: 0 }]
+  state:Istate = {
+    items: [{ id: 1, value: 0 }, { id: 2, value: 0 }, { id: 3, value: 0 }, { id: 4, value: 0 }],
+    theme: "dark",
   };
 
   handleIncrement = (item: IItem) => {
@@ -79,44 +128,49 @@ export default class App extends React.Component<InitProps> {
     const items = this.state.items.filter(item => item.id !== itemId);
     this.setState({ items: items });
   };
+  themeToggler  = () => {
+    this.state.theme == 'light' ? this.setState({theme: "dark"}) : this.setState({theme: "light"})
+  }
 
   render() {
     return (
       <>
-        <GlobalStyle />
-        <Router>
-          <Header >
-            <Nav>
-              <NavDiv>
-                <LogoTitle>
-                  That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
-                </LogoTitle>
-                <NavUl>
-                  <NavbarLi>
-                    <NavLink to="/about">About</NavLink>
-                  </NavbarLi>
-                  <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
-                  </NavbarLi>
-                  <NavbarLi><NavLink to="/">Home</NavLink>
-                  </NavbarLi>
-                </NavUl>
-              </NavDiv>
-            </Nav>
-          </Header>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/fragments">
-              <Fragments {...this.state}
-                handleDelete={this.handleDelete}
-                handleIncrement={this.handleIncrement}
-                handleReset={this.handleReset} />
-            </Route>
-            <Route path="/about" component={About} />
-          </Switch>
-        </Router>
-        <Footer />
+        <ThemeProvider theme ={this.state.theme=== 'light' ? whiteSnake : fooFighters}>
+          <GlobalStyle />
+          <Router>
+            <Header >
+              <Nav>
+                <NavDiv>
+                  <LogoTitle>
+                    That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
+                  </LogoTitle>
+                  <NavUl>
+                    <NavbarLi>
+                      <NavLink to="/about">About</NavLink>
+                    </NavbarLi>
+                    <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
+                    </NavbarLi>
+                    <NavbarLi><NavLink to="/">Home</NavLink>
+                    </NavbarLi>
+                  </NavUl>
+                </NavDiv>
+              </Nav>
+            </Header>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/fragments">
+                <Fragments {...this.state}
+                  handleDelete={this.handleDelete}
+                  handleIncrement={this.handleIncrement}
+                  handleReset={this.handleReset} />
+              </Route>
+              <Route path="/about" component={About} />
+            </Switch>
+          </Router>
+          <Footer />
+        </ThemeProvider>
       </>
     )
   }

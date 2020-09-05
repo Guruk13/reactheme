@@ -12,6 +12,11 @@ const {
 
 export interface IThemeInterface {
   primaryColor: string;
+  secondaryColor: string;
+  body: string;
+  text: string;
+  toggleBorder: string;
+  background: string;
 }
 
 export const theme = {
@@ -25,13 +30,17 @@ export const theme = {
 };
 
 
-export const starPratina = {
+export const whiteSnake = {
   body: '#709cbf',
+  primaryColor: "#090966",
+  secondaryColor:"",
   text: '#15151D',
   toggleBorder: '#FFF',
   background: '#6C428E',
 }
-export const hyerophantoGreen = {
+export const fooFighters = {
+  primaryColor: "#090966",
+  secondaryColor:"",
   body: '#E5FFCD',
   text: '#FFFF49',
   toggleBorder: '#6B8096',

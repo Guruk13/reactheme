@@ -7,7 +7,6 @@ class Items extends Component {
             <React.Fragment>
                 <button
                     onClick={this.props.onReset}
-                    className="btn btn-success btn-lg m-3"
                 >
                     Reset All
         </button>
