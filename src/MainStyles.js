@@ -34,4 +34,5 @@ export const NavUl = styled.ul`
     width: 100 %;
     margin - top: 1em;
     padding - left: 3.5em;
+    list-style-type: none;
   `

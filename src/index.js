@@ -8,9 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
  let app = (
       <React.StrictMode>
-
         <App />
-
         </React.StrictMode>
  );
 

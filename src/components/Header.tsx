@@ -3,7 +3,8 @@ import React, { FunctionComponent } from 'react'; // importing FunctionComponent
 import styled from '../theme/index';
 
 const StyledHeader = styled.header`
-    background: ${({ theme }) => theme.background};
+    background-color:${({ theme }) => theme.navColor};
+    color:${({ theme }) => theme.lightColorText};
 `;
 
 type HeaderProps = {

@@ -6,25 +6,19 @@ class Item extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card mb-2">
           <h5 className={this.styleCardHeader()}>{this.styleCount()}</h5>
-          <div className="card-body">
             <button
               onClick={() => this.props.onIncrement(this.props.item)}
-              className="btn btn-lg btn-outline-secondary"
             >
               Increment
             </button>
- 
             <button
               onClick={() => this.props.onDelete(this.props.item.id)}
-              className="btn btn-lg btn-outline-danger ml-4"
             >
               Delete
             </button>
-          </div>
-        </div>
       </React.Fragment>
+
     );
   }
  

@@ -51,7 +51,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 20px;
   }
 
-
  body{
    background-color:${({ theme }) => theme.background};
  }
@@ -64,6 +63,11 @@ const GlobalStyle = createGlobalStyle`
   
   #root > div{
     flex-grow: 1;
+  }
+ //NavLink Styles 
+  nav> div> ul> li> a{
+    color: ${({ theme }) => theme.lightColorText};
+    text-decoration: none;
   }
 
   //three parts and navbar 

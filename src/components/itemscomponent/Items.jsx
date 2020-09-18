@@ -9,7 +9,8 @@ class Items extends Component {
                     onClick={this.props.onReset}
                 >
                     Reset All
-        </button>
+                </button>
+                <div>
                 {this.props.items.map(item => (
                     <Item
                         key={item.id}
@@ -18,6 +19,7 @@ class Items extends Component {
                         item={item}
                     />
                 ))}
+                </div>
             </React.Fragment>
         );
     }

@@ -11,6 +11,8 @@ const {
 >;
 
 export interface IThemeInterface {
+  navColor: string,
+  lightColorText: string,
   primaryColor: string;
   secondaryColor: string;
   body: string;
@@ -19,18 +21,11 @@ export interface IThemeInterface {
   background: string;
 }
 
-export const theme = {
-  primaryColor: "#090966",
-  secondaryColor:"",
-  body: '#FFF',
-  text: '#363537',
-  toggleBorder: '#FFF',
-  background: '#363537',
-  
-};
 
 
-export const whiteSnake = {
+export const whiteSnake: IThemeInterface = {
+  navColor: "red" ,
+  lightColorText: "red",
   body: '#709cbf',
   primaryColor: "#090966",
   secondaryColor:"",
@@ -38,13 +33,15 @@ export const whiteSnake = {
   toggleBorder: '#FFF',
   background: '#6C428E',
 }
-export const fooFighters = {
-  primaryColor: "#090966",
+export const fooFighters: IThemeInterface = {
+  navColor: "#212121",
+  lightColorText: "#f2f2f2",
+  primaryColor: "#212121",
   secondaryColor:"",
   body: '#E5FFCD',
   text: '#FFFF49',
   toggleBorder: '#6B8096',
-  background: '#1D9356',
+  background: '#f2f2f2',
 }
 
 export default styled;
