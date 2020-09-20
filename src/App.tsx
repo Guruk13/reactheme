@@ -14,7 +14,7 @@ https://fettblog.eu/typescript-react/components/
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "regenerator-runtime/runtime.js";
-import { NavLink } from 'react-router-dom';
+import { SNavLink } from './MainStyles.js'
 // J O B 
 import About from './components/random/About';
 import Home from './components/Home';
@@ -23,7 +23,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 //Styling
 import { Nav, NavDiv, NavUl, NavbarLi, LogoTitle } from './MainStyles.js'
-import { createGlobalStyle, ThemeProvider, whiteSnake, fooFighters, IThemeInterface } from "./theme";
+import { createGlobalStyle, ThemeProvider, whiteSnake, fooFighters} from "./theme";
 //Fonts. Include any other format in d.ts
 import Kaushan from './font/KaushanScript-Regular.ttf';
 import Righteous from './font/Righteous-Regular.ttf';
@@ -46,6 +46,8 @@ interface IItem {
 
 
 
+
+
 const GlobalStyle = createGlobalStyle`
   #root > * {
     padding: 20px;
@@ -63,13 +65,8 @@ const GlobalStyle = createGlobalStyle`
   
   #root > div{
     flex-grow: 1;
+    display: flex;
   }
- //NavLink Styles 
-  nav> div> ul> li> a{
-    color: ${({ theme }) => theme.lightColorText};
-    text-decoration: none;
-  }
-
   //three parts and navbar 
 
   @font-face {
@@ -150,11 +147,11 @@ export default class App extends React.Component<InitProps> {
                   </LogoTitle>
                   <NavUl>
                     <NavbarLi>
-                      <NavLink to="/about">About</NavLink>
+                      <SNavLink to="/about">About</SNavLink>
                     </NavbarLi>
-                    <NavbarLi> <NavLink to="/fragments">Fragments</NavLink>
+                    <NavbarLi> <SNavLink to="/fragments">Fragments</SNavLink>
                     </NavbarLi>
-                    <NavbarLi><NavLink to="/">Home</NavLink>
+                    <NavbarLi><SNavLink to="/" exact >Home</SNavLink>
                     </NavbarLi>
                   </NavUl>
                 </NavDiv>

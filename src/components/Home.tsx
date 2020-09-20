@@ -1,11 +1,20 @@
-// this component for about page
 import React, { Component } from 'react';
+import { SFittingImage } from './fittingImage.js';
+import About from './random/About.js';
+import styled from '../theme/index';
+
+const StyledDiv = styled.div`
+flex-direction: column;
+`
+
 class Home extends Component{
     render(){
         return(
-            <div>
-                <h1>Touch , i Remember touch </h1>
-            </div>
+            <StyledDiv>
+                <SFittingImage></SFittingImage>
+                <About></About>
+            </StyledDiv>
+            
         );
     }
 }

@@ -1,12 +1,17 @@
 
 import styled from './theme/index';
-
+import { NavLink } from 'react-router-dom';
 
 
 export const NavbarLi = styled.li`
   font-family:'MenuItems' ;
   margin: 15px;
   font-size: 32px;
+
+  border-radius: 25px;
+  border: 5px solid red
+  padding: 15px
+
   `
 
 export const Nav = styled.nav`
@@ -36,3 +41,21 @@ export const NavUl = styled.ul`
     padding - left: 3.5em;
     list-style-type: none;
   `
+
+//order of some of some of the following css rules matter
+export const SNavLink = styled(NavLink)`
+color: ${({ theme }) => theme.lightColorText};
+text-decoration: none;
+&.active {
+  border-radius: 25px;
+  border: 5px solid ${({ theme }) => theme.lightColorText};
+  padding: 15px
+}
+border-radius: 25px;
+border: 5px solid ${({ theme }) => theme.navColor};
+padding: 15px
+`;
+
+
+
+
