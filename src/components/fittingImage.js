@@ -5,7 +5,7 @@ import styled from '../theme/index';
 
 export const SFittingImage = styled.div`
 flex-grow : 1 ;
-background-image: url(https://www.riotgames.com/darkroom/700/bde5bce620428b3099cff9b47b2c9fa2:94bab0e09b0307e591b485a55207f6bb/league-newlogo-banner.jpg);
+background-image: url();
 /* Background image is centered vertically and horizontally at all times */
 background-position: center center;
 

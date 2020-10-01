@@ -39,7 +39,7 @@ export const NavUl = styled.ul`
     width: 100 %;
     margin - top: 1em;
     padding - left: 3.5em;
-    list-style-type: none;
+    list-style-type: none;&
   `
 
 //order of some of some of the following css rules matter
@@ -55,6 +55,13 @@ border-radius: 25px;
 border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
+
+export const FullHeightSection = styled.section`
+height: auto;
+min-height: 800px;
+background-color: ${props => props.color};;
+
+`
 
 
 

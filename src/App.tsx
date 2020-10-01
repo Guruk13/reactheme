@@ -49,7 +49,7 @@ interface IItem {
 
 
 const GlobalStyle = createGlobalStyle`
-  #root > * {
+  #root > header, #root > footer {
     padding: 20px;
   }
 
@@ -63,10 +63,6 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
   
-  #root > div{
-    flex-grow: 1;
-    display: flex;
-  }
   //three parts and navbar 
 
   @font-face {
@@ -130,7 +126,7 @@ export default class App extends React.Component<InitProps> {
     this.setState({ items: items });
   };
   themeToggler  = () => {
-    this.state.theme == 'light' ? this.setState({theme: "dark"}) : this.setState({theme: "light"})
+    this.state.theme === 'light' ? this.setState({theme: "dark"}) : this.setState({theme: "light"})
   }
 
   render() {
