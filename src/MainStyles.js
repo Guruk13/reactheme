@@ -3,6 +3,7 @@ import styled from './theme/index';
 import { NavLink } from 'react-router-dom';
 
 
+
 export const NavbarLi = styled.li`
   font-family:'MenuItems' ;
   margin: 15px;
@@ -56,13 +57,31 @@ border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
 
-export const FullHeightSection = styled.section`
+export const FullHeightSectionWBI = styled.section`
 height: auto;
 min-height: 800px;
 background-color: ${props => props.color};;
 
+background-image: url(${props => props.color});
+/* Background image is centered vertically and horizontally at all times */
+background-position: center center;
+
+/* Background image doesn't tile */
+background-repeat: no-repeat;
+
+/* Background image is fixed in the viewport so that it doesn't move when 
+the content's height is greater than the image's height */
+background-attachment: initial;
+
+/* This is what makes the background image rescale based
+on the container's size */
+background-size: cover;
+
+/* Set a background color that will be displayed
+while the background image is loading */
+background-color: #464646;
 `
-
-
-
-
+export const FullHeightSection = styled.section`
+height: auto;
+min-height: 800px;
+`

@@ -57,6 +57,11 @@ const GlobalStyle = createGlobalStyle`
    background-color:${({ theme }) => theme.background};
  }
 
+ #root div {
+  flex-grow: 1;
+ }
+
+
   #root{
     display: flex;
     flex-direction: column;
@@ -75,6 +80,8 @@ const GlobalStyle = createGlobalStyle`
     src:  url(${Righteous})  
   }
 
+
+  //@todo define breakpoints and use 'em 
   @media screen and (min-width: 550px) {
     .page-headeér ul {
       width: auto;
