@@ -36,7 +36,7 @@ export const NavUl = styled.ul`
     width: 100 %;
     margin - top: 1em;
     padding - left: 3.5em;
-    list-style-type: none;&
+    list-style-type: none;
   `
 
 //order of some of some of the following css rules matter
@@ -54,6 +54,7 @@ border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
 
+<<<<<<< HEAD
 export const FullHeightSection = styled.section`
 height: auto;
 min-height: 800px;
@@ -67,6 +68,8 @@ export const FullHeightSectionWBI = styled(FullHeightSection)`
 background-color: red;
 /* Background image is centered vertically and horizontally at all times */
 background-position: center center;
+=======
+>>>>>>> parent of 32a5aa3... finnallly some full height full width section , no backgroun, something
 
 /* Background image doesn't tile */
 background-repeat: no-repeat;
