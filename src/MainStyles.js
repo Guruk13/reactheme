@@ -2,17 +2,13 @@
 import styled from './theme/index';
 import { NavLink } from 'react-router-dom';
 
-
-
 export const NavbarLi = styled.li`
   font-family:'MenuItems' ;
   margin: 15px;
   font-size: 32px;
-
   border-radius: 25px;
   border: 5px solid red
   padding: 15px
-
   `
 
 export const Nav = styled.nav`
@@ -47,6 +43,7 @@ export const NavUl = styled.ul`
 export const SNavLink = styled(NavLink)`
 color: ${({ theme }) => theme.lightColorText};
 text-decoration: none;
+outline: 0;
 &.active {
   border-radius: 25px;
   border: 5px solid ${({ theme }) => theme.lightColorText};
@@ -57,12 +54,17 @@ border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
 
-export const FullHeightSectionWBI = styled.section`
+export const FullHeightSection = styled.section`
 height: auto;
 min-height: 800px;
-background-color: ${props => props.color};;
+margin-top: 50px;
+margin-bottom: 50px;
+border-sizing: content-box;
+`
 
-background-image: url(${props => props.color});
+//pass in props  style={{backgroundImage: `url(${huervo})`}}
+export const FullHeightSectionWBI = styled(FullHeightSection)`
+background-color: red;
 /* Background image is centered vertically and horizontally at all times */
 background-position: center center;
 
@@ -79,9 +81,7 @@ background-size: cover;
 
 /* Set a background color that will be displayed
 while the background image is loading */
-background-color: #464646;
+background-color: ${({ theme }) => theme.background};
 `
-export const FullHeightSection = styled.section`
-height: auto;
-min-height: 800px;
-`
+
+

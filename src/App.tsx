@@ -57,10 +57,10 @@ const GlobalStyle = createGlobalStyle`
    background-color:${({ theme }) => theme.background};
  }
 
- #root div {
+ #root > div {
   flex-grow: 1;
+  background-color: ${({ theme }) => theme.secondaryColor};
  }
-
 
   #root{
     display: flex;
@@ -139,14 +139,14 @@ export default class App extends React.Component<InitProps> {
   render() {
     return (
       <>
-        <ThemeProvider theme ={this.state.theme=== 'light' ? whiteSnake : fooFighters}>
+        <ThemeProvider theme ={this.state.theme === 'light' ? whiteSnake : fooFighters}>
           <GlobalStyle />
           <Router>
             <Header >
               <Nav>
                 <NavDiv>
                   <LogoTitle>
-                    That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
+                    That part {this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
                   </LogoTitle>
                   <NavUl>
                     <NavbarLi>
