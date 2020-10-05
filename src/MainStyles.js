@@ -54,7 +54,6 @@ border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
 
-<<<<<<< HEAD
 export const FullHeightSection = styled.section`
 height: auto;
 min-height: 800px;
@@ -68,8 +67,6 @@ export const FullHeightSectionWBI = styled(FullHeightSection)`
 background-color: red;
 /* Background image is centered vertically and horizontally at all times */
 background-position: center center;
-=======
->>>>>>> parent of 32a5aa3... finnallly some full height full width section , no backgroun, something
 
 /* Background image doesn't tile */
 background-repeat: no-repeat;
