@@ -55,16 +55,13 @@ padding: 15px
 `;
 
 export const FullHeightSection = styled.section`
-height: auto;
-min-height: 800px;
+height: 100vh;
 margin-top: 50px;
 margin-bottom: 50px;
-border-sizing: content-box;
 `
 
 //pass in props  style={{backgroundImage: `url(${huervo})`}}
 export const FullHeightSectionWBI = styled(FullHeightSection)`
-background-color: red;
 /* Background image is centered vertically and horizontally at all times */
 background-position: center center;
 

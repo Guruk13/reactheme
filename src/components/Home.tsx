@@ -10,18 +10,11 @@ import samrai from '../res/samrai.webp';
 const SHWrapper = styled.div`
 
 `
-const StyledDiv = styled.div`
-	display: flex;
-    width: 100%; 
-    height: 100%; 
-`
-const contained =styled.div`
-	flex: 1 1 100%;
-	min-width: 0px;
-`
+
+
 export const Home: FunctionComponent = () =>
             <SHWrapper>
-                <FullHeightSectionWBI style={{backgroundImage: `url(${huervo})`}} > <StyledDiv></StyledDiv>
+                <FullHeightSectionWBI style={{backgroundImage: `url(${huervo})`}} > 
                 </FullHeightSectionWBI>
                 <FullHeightSectionWBI style={{backgroundImage: `url(${samrai})`}} >
                 </FullHeightSectionWBI>

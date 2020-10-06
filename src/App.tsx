@@ -68,10 +68,6 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
   
-  #root > div{
-    flex-grow: 1;
-    display: flex;
-  }
   //three parts and navbar 
 
   @font-face {
