@@ -1,27 +1,31 @@
-//T E C H N I C H A L 
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
+import { FullHeightSectionWBI } from '../MainStyles.js'
 import styled from '../theme/index';
-//J O B 
-import About from './random/About.js';
+import huervo from '../res/huervo.jpg';
+import samrai from '../res/samrai.webp';
+import vitruve from '../res/vitruve.jpeg';
 
-// S T Y L I N G 
-import { SFittingImage } from './fittingImage.js';
-import { FullScreenSection } from '../MainStyles.js';
 
-const Sdiv = styled.div`
+//https://stackoverflow.com/questions/53920405/change-background-image-with-styled-component
+
+const SHWrapper = styled.div`
+
+`;
+const GRImage = styled.div`
+height: 100vh;
+width: auto;
+background: yellow ; 
 `
 
-class Home extends Component {
-    render() {
-        return (
-            <Sdiv>
-                <FullScreenSection>
+export const Home: FunctionComponent = () =>
+            <SHWrapper>
+                <FullHeightSectionWBI style={{backgroundImage: `url(${huervo})`}} > 
+                </FullHeightSectionWBI>
+                <FullHeightSectionWBI style={{backgroundImage: `url(${samrai})`}} >
+                </FullHeightSectionWBI>
 
-                </FullScreenSection>
+                <GRImage><img src={vitruve} height="100%" alt="vitruve man ayayaya " ></img></GRImage>
 
-            </Sdiv>
+            </SHWrapper>     
 
-        );
-    }
-}
 export default Home;

@@ -21,8 +21,6 @@ export interface IThemeInterface {
   background: string;
 }
 
-
-
 export const whiteSnake: IThemeInterface = {
   navColor: "red" ,
   lightColorText: "red",
@@ -33,11 +31,12 @@ export const whiteSnake: IThemeInterface = {
   toggleBorder: '#FFF',
   background: '#6C428E',
 }
+
 export const fooFighters: IThemeInterface = {
   navColor: "#212121",
   lightColorText: "#f2f2f2",
   primaryColor: "#212121",
-  secondaryColor:"",
+  secondaryColor:"#505050",
   body: '#E5FFCD',
   text: '#FFFF49',
   toggleBorder: '#6B8096',

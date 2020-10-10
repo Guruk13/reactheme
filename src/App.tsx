@@ -57,16 +57,17 @@ html, body {
    width:100vw;
  }
 
+ #root > div {
+  flex-grow: 1;
+  background-color: ${({ theme }) => theme.secondaryColor};
+ }
+
   #root{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
   
-  #root > div{
-    flex-grow: 1;
-    display: flex;
-  }
   //three parts and navbar 
 
   @font-face {
@@ -79,6 +80,8 @@ html, body {
     src:  url(${Righteous})  
   }
 
+
+  //@todo define breakpoints and use 'em 
   @media screen and (min-width: 550px) {
     .page-headeér ul {
       width: auto;
@@ -130,20 +133,20 @@ export default class App extends React.Component<InitProps> {
     this.setState({ items: items });
   };
   themeToggler  = () => {
-    this.state.theme == 'light' ? this.setState({theme: "dark"}) : this.setState({theme: "light"})
+    this.state.theme === 'light' ? this.setState({theme: "dark"}) : this.setState({theme: "light"})
   }
 
   render() {
     return (
       <>
-        <ThemeProvider theme ={this.state.theme=== 'light' ? whiteSnake : fooFighters}>
+        <ThemeProvider theme ={this.state.theme === 'light' ? whiteSnake : fooFighters}>
           <GlobalStyle />
           <Router>
             <Header >
               <Nav>
                 <NavDiv>
                   <LogoTitle>
-                    That part from Moroder goes ...{this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
+                    That part {this.state.items.reduce((accumulator, currentValue) => { return accumulator + currentValue.value; }, 0)}
                   </LogoTitle>
                   <NavUl>
                     <NavbarLi>
