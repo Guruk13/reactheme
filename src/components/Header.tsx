@@ -5,6 +5,7 @@ import styled from '../theme/index';
 const StyledHeader = styled.header`
     background-color:${({ theme }) => theme.navColor};
     color:${({ theme }) => theme.lightColorText};
+    padding: 20px;
 `;
 
 type HeaderProps = {

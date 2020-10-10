@@ -2,6 +2,8 @@
 import styled from './theme/index';
 import { NavLink } from 'react-router-dom';
 
+import huervosam from './res/huervosam.jpg'
+
 
 export const NavbarLi = styled.li`
   font-family:'MenuItems' ;
@@ -55,6 +57,33 @@ border-radius: 25px;
 border: 5px solid ${({ theme }) => theme.navColor};
 padding: 15px
 `;
+
+export const FullScreenSection = styled.section`
+  background-image: url(${huervosam});
+  display: block;
+  height:100%;
+  width:100%;
+  padding: 60px;
+  padding-left: 120px;
+  box-sizing:border-box;
+  /* Background image is centered vertically and horizontally at all times */
+background-position: center center;
+
+/* Background image doesn't tile */
+background-repeat: no-repeat;
+
+/* Background image is fixed in the viewport so that it doesn't move when 
+   the content's height is greater than the image's height */
+background-attachment: fixed;
+
+/* This is what makes the background image rescale based
+   on the container's size */
+background-size: cover;
+
+/* Set a background color that will be displayed
+   while the background image is loading */
+background-color: #464646;
+`
 
 
 

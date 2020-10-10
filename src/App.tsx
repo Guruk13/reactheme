@@ -49,12 +49,12 @@ interface IItem {
 
 
 const GlobalStyle = createGlobalStyle`
-  #root > * {
-    padding: 20px;
-  }
 
- body{
+
+html, body {
    background-color:${({ theme }) => theme.background};
+   height:100vh;
+   width:100vw;
  }
 
   #root{
@@ -160,6 +160,7 @@ export default class App extends React.Component<InitProps> {
             <Switch>
               <Route exact path="/">
                 <Home />
+                
               </Route>
               <Route path="/fragments">
                 <Fragments {...this.state}

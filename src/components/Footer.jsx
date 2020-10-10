@@ -3,6 +3,7 @@ import  styled  from '../theme/index';
 
 const StyledFooter = styled.footer`
     background-color:${({ theme }) => theme.navColor};
+    padding: 20px ; 
 `;
 
 const StyledH1 = styled.h1`
