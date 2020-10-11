@@ -2,6 +2,8 @@
 import styled from './theme/index';
 import { NavLink } from 'react-router-dom';
 
+
+
 export const NavbarLi = styled.li`
   font-family:'MenuItems' ;
   margin: 15px;
@@ -74,6 +76,20 @@ background-size: cover;
 /* Set a background color that will be displayed
 while the background image is loading */
 background-color: ${({ theme }) => theme.background};
+`
+const phi = 1.6180339887498948482;
+const aphi = 0.61803;
+const bphi = 0.38197;
+const basewidth = 100;
+export const GRImagetag = styled.img`
+    height: 100%;
+    width: ${basewidth*aphi}%;
+    alt: "vitruve man ayayaya ";
+`
+
+export const GRImage = styled.div`
+height : 100vh ;
+background: black;
 `
 
 
