@@ -1,6 +1,7 @@
 
 import styled from './theme/index';
 import { NavLink } from 'react-router-dom';
+import styledContainerQuery from 'styled-container-query';
 
 
 
@@ -53,6 +54,8 @@ padding: 15px
 
 export const FullHeightSection = styled.section`
 height: 100vh;
+//set relative for all its descendants , set a foot in your own legacy 
+position: relative;
 `
 
 //pass in props  style={{backgroundImage: `url(${huervo})`}}
@@ -81,15 +84,31 @@ const phi = 1.6180339887498948482;
 const aphi = 0.61803;
 const bphi = 0.38197;
 const basewidth = 100;
-export const GRImagetag = styled.img`
+export const GRImagetag = styledContainerQuery.img`
     height: 100%;
-    width: ${basewidth*aphi}%;
+    max-height: 100%;
+    min-width: ${basewidth * aphi}%;
+    width: ${basewidth * aphi}%;
     alt: "vitruve man ayayaya ";
+
+    &:container(max-width: 500px) {
+      width: 100%;
+    }
+
 `
 
-export const GRImage = styled.div`
-height : 100vh ;
-background: black;
+export const GRImage = styled.figure`
+height : 100%;
+background: ${({ theme }) => theme.background};
+display: flex ; 
+position: relative;
+`
+export const FigCaption = styled.figcaption`
+    font-family: 'navBarFont', cursive;
+    font-size: 38px;
+    //what's malking the bottom card 
+    position: absolute;
+    align-self: flex-end;
 `
 
 

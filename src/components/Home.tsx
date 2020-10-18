@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FullHeightSectionWBI, GRImage, GRImagetag, LogoTitle } from '../MainStyles.js'
+import { FullHeightSectionWBI, GRImage, GRImagetag, FigCaption } from '../MainStyles.js'
 import styled from '../theme/index';
 import huervo from '../res/huervo.jpg';
 import samrai from '../res/samrai.webp';
@@ -23,7 +23,7 @@ export const Home: FunctionComponent = () =>
                 </FullHeightSectionWBI>
                 <FullHeightSectionWBI style={{backgroundImage: `url(${samrai})`}} >
                 </FullHeightSectionWBI>
-                <GRImage><LogoTitle> Boom ,whaddya get ?</LogoTitle><GRImagetag src={vitruve} ></GRImagetag></GRImage>
+                <GRImage><GRImagetag src={vitruve}/> <FigCaption> Boom ,whaddya get ?</FigCaption></GRImage>
 
             </SHWrapper>     
 
